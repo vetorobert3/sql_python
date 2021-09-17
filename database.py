@@ -5,10 +5,12 @@ conn = sqlite3.connect('quotes.db')
 # Create a cursor
 c = conn.cursor()
 
-# Create a table
-c.execute("INSERT INTO quote VALUES ('Buddha', 'You only lose what you cling to.')")
+# Query the database
+c.execute("SELECT * FROM quote")
 
-print("Command executed succesfully...")
+print(c.fetchall())
+
+#print("Command executed succesfully...")
 # Commit our command
 conn.commit()
 
