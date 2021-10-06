@@ -6,12 +6,13 @@ conn = sqlite3.connect('quotes.db')
 c = conn.cursor()
 
 # Query the database
-c.execute("SELECT * FROM quote")
-#print(c.fetchone()[1])
-#print(c.fetchmany(2))
+c.execute("SELECT * FROM quote WHERE author like 'C%'")
+
 items = c.fetchall()
+
 for item in items:
-    print(item[0] + ": " + item[1])
+    print(item)
+
 
 #print("Command executed succesfully...")
 # Commit our command
